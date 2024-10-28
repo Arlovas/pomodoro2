@@ -1,0 +1,22 @@
+Next:
+    ☐ Commit latest changes
+    ☐ Light theme
+    ☐ Portuguese language (possible others)
+    ☐ Split components
+    ☐ Break
+    ☐ Configuration
+
+
+Font:
+    ✘ @low Update to font `Chakra Petch` @cancelled(24-10-21 16:27)
+        - This font is not monospaced, looks weird
+    ✔ Remove `fonts.ts` file @done(24-10-21 16:28)
+
+Icon:
+    ✔ @low Add icon when pomodoro is running @done(24-10-21 16:43)
+    ✔ @low Add icon when pomodoro is paused @done(24-10-21 16:43)
+
+Ui:
+    ✔ Update time in title @done(24-10-21 16:49)
+    ✔ Change the text between start and pause @done(24-10-23 14:11)
+    ✔ Update favicon @started(24-10-23 14:25) @done(24-10-23 14:25) @lasted(31s)

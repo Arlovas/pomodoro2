@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ubuntu } from '@/app/ui/fonts';
+import { GeistSans } from 'geist/font/sans';
 
 export const metadata: Metadata = {
     title: "Pomodovas",
@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${ubuntu.className} antialiased bg-zinc-900`}>
+            <body className={` ${GeistSans.className} antialiased bg-zinc-900`}>
                 {children}
             </body>
         </html>

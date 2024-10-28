@@ -2,14 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 import { formatTimeMinutes } from "./time/timeFormat";
+import { GeistMono } from 'geist/font/mono';
+import { PlayIcon, PauseIcon } from '@heroicons/react/24/outline'
 
-const DEFAULT_POMODORO_TIME = 25 * 60;
+import Button from "./components/Button";
+
+const POMODORO_BREAK_TIME = 5 * 60; // 5 min 
+const DEFAULT_POMODORO_TIME = 25 * 60; // 25 min
 
 export default function Pomodoro() {
     const [isActive, setIsActive] = useState(false);
+    const [timeLeft, setTimeLeft] = useState(DEFAULT_POMODORO_TIME);
+
     const startTimeRef = useRef(Date.now());
     const intervalRef = useRef({});
-    const [timeLeft, setTimeLeft] = useState(DEFAULT_POMODORO_TIME);
+    
     const audioRef = useRef<HTMLAudioElement>(null);
 
     function start() {
@@ -29,17 +36,17 @@ export default function Pomodoro() {
     }
 
 
-    // Makes the pomodoro work 
+    // Makes the pomodoro work
     useEffect(() => {
         // Avoid early starts
         if (!isActive) return;
 
         // Only way to correct keep track of the time, is to keep start point and compare
         startTimeRef.current = Date.now();
-        
+
         intervalRef.current = setInterval(() => {
             const elapsedTime = Math.floor((Date.now() - startTimeRef.current) / 1000);
-            
+
             setTimeLeft(Math.max(timeLeft - elapsedTime, 0));
 
             if (timeLeft - elapsedTime <= 0) {
@@ -51,6 +58,10 @@ export default function Pomodoro() {
         return () => clearInterval(intervalRef.current as number);
     }, [isActive]);
 
+    useEffect(() => {
+        document.title = `${getTimeForScreen()} - Pomodovas`;
+    }, [timeLeft])
+
     const resetTimer = () => {
         setIsActive(false);
         setTimeLeft(DEFAULT_POMODORO_TIME);
@@ -58,6 +69,14 @@ export default function Pomodoro() {
         audioRef.current && (audioRef.current.currentTime = 0);
         audioRef.current?.pause();
     };
+
+    const setBreakTime = () => {
+        setIsActive(false);
+        setTimeLeft(POMODORO_BREAK_TIME);
+
+        audioRef.current && (audioRef.current.currentTime = 0);
+        audioRef.current?.pause();
+    }
 
     // Clear the interval, avoids unnecessary renders
     useEffect(() => {
@@ -68,22 +87,21 @@ export default function Pomodoro() {
 
     return (
         <main className="h-screen flex items-start justify-center mt-32">
-            <div className="bg-blue-100 rounded-2xl p-10 bg-opacity-10">
+            <div className={`bg-blue-100 rounded-2xl p-10 bg-opacity-10 ${GeistMono.className}`}>
                 <div>
                     <p className={`text-9xl text-orange-700`}>
                         {getTimeForScreen()}
                     </p>
 
                     <div className="flex gap-4 justify-center mt-6">
-                        <button className="cursor-pointer p-2 rounded-xl text-2xl hover:bg-orange-400 hover:bg-opacity-20" onClick={start}>
-                            start
-                        </button>
-                        <div>
-                            .
-                        </div>
-                        <button className="cursor-pointer p-2 rounded-xl text-2xl hover:bg-orange-400 hover:bg-opacity-20" onClick={resetTimer}>
-                            reset
-                        </button>
+
+                        <Button
+                            onClick={start}
+                            label={isActive ? 'pause' : 'start'}
+                            icon={isActive ? <PauseIcon className="h-6 w-6" /> : <PlayIcon className="h-6 w-6" />}
+                        />
+                        <Button onClick={resetTimer} label={'reset'} />
+                        <Button onClick={setBreakTime} label={'break'} />
                     </div>
                 </div>
             </div>
