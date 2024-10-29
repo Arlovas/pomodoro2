@@ -1,11 +1,18 @@
-Next:
-    ☐ Commit latest changes
-    ☐ Light theme
+Next:    
+    ☐ Create switch for light and dark theme
     ☐ Portuguese language (possible others)
-    ☐ Split components
-    ☐ Break
     ☐ Configuration
 
+29 Oct:
+    ✔ Create css variables @done(24-10-29 20:48)
+    ✔ Dark and light themes using variables, the code is cleaner now @done(24-10-29 20:49)
+
+
+28 Oct:
+    ✔ Commit latest changes @done(24-10-28 16:32)
+    ✔ Split components @done(24-10-28 16:32)
+    ✔ Break @done(24-10-28 16:32)
+    ☐ Light theme
 
 Font:
     ✘ @low Update to font `Chakra Petch` @cancelled(24-10-21 16:27)

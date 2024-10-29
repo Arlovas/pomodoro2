@@ -46,12 +46,13 @@ export default function Pomodoro() {
 
         intervalRef.current = setInterval(() => {
             const elapsedTime = Math.floor((Date.now() - startTimeRef.current) / 1000);
-
             setTimeLeft(Math.max(timeLeft - elapsedTime, 0));
 
             if (timeLeft - elapsedTime <= 0) {
                 setTimeLeft(0);
-                audioRef.current?.play(); // Play the sound when the timer ends
+
+                // Play the sound when the timer ends
+                audioRef.current?.play(); 
             }
         }, 1000);
 
@@ -87,9 +88,9 @@ export default function Pomodoro() {
 
     return (
         <main className="h-screen flex items-start justify-center mt-32">
-            <div className={`bg-blue-100 rounded-2xl p-10 bg-opacity-10 ${GeistMono.className}`}>
+            <div className={`bg-pomodoroBgColor/10 rounded-2xl p-10  ${GeistMono.className} antialiased`}>
                 <div>
-                    <p className={`text-9xl text-orange-700`}>
+                    <p className={`text-9xl text-mainText`}>
                         {getTimeForScreen()}
                     </p>
 
