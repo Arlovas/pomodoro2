@@ -6,6 +6,7 @@ import { GeistMono } from 'geist/font/mono';
 import { PlayIcon, PauseIcon } from '@heroicons/react/24/outline'
 
 import Button from "./components/Button";
+import ThemeSwitch from "./components/ThemeSwitch";
 
 const POMODORO_BREAK_TIME = 5 * 60; // 5 min 
 const DEFAULT_POMODORO_TIME = 25 * 60; // 25 min
@@ -87,7 +88,12 @@ export default function Pomodoro() {
     }, [timeLeft])
 
     return (
-        <main className="h-screen flex items-start justify-center mt-32">
+        <main className="h-screen flex items-start justify-center pt-32">
+
+            <div className="w-10">
+                <ThemeSwitch />
+            </div>
+
             <div className={`bg-pomodoroBgColor/10 rounded-2xl p-10  ${GeistMono.className} antialiased`}>
                 <div>
                     <p className={`text-9xl text-mainText`}>
