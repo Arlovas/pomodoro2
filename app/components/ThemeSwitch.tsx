@@ -1,10 +1,15 @@
-// app/components/ThemeSwitch.tsx
 'use client'
+
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 import { SunIcon, MoonIcon, HeartIcon } from '@heroicons/react/24/outline'
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
-import Image from "next/image"
 
 export default function ThemeSwitch() {
     const [mounted, setMounted] = useState(false)
@@ -16,11 +21,26 @@ export default function ThemeSwitch() {
         <HeartIcon className='select-none' />
     )
 
+    let icon, tooltipHover;
+
     if (resolvedTheme === 'dark') {
-        return <SunIcon onClick={() => setTheme('light')} className='select-none' />
+        tooltipHover = 'Switch to light mode';
+        icon = <SunIcon onClick={() => setTheme('light')} className='cursor-pointer select-none' />
     }
 
     if (resolvedTheme === 'light') {
-        return <MoonIcon onClick={() => setTheme('dark')} className='select-none' />
+        tooltipHover = 'Switch to dark mode';
+        icon = <MoonIcon onClick={() => setTheme('dark')} className='cursor-pointer select-none' />
     }
+
+    return (
+        <TooltipProvider delayDuration={400}>
+            <Tooltip>
+                <TooltipTrigger asChild>{icon}</TooltipTrigger>
+                <TooltipContent>
+                    <p>{tooltipHover}</p>
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+    )
 }

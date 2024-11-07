@@ -6,7 +6,7 @@ import { GeistMono } from 'geist/font/mono';
 import { PlayIcon, PauseIcon } from '@heroicons/react/24/outline'
 
 import Button from "./components/Button";
-import ThemeSwitch from "./components/ThemeSwitch";
+import NavBar from "./components/NavBar";
 
 const POMODORO_BREAK_TIME = 5 * 60; // 5 min 
 const DEFAULT_POMODORO_TIME = 25 * 60; // 25 min
@@ -17,7 +17,7 @@ export default function Pomodoro() {
 
     const startTimeRef = useRef(Date.now());
     const intervalRef = useRef({});
-    
+
     const audioRef = useRef<HTMLAudioElement>(null);
 
     function start() {
@@ -53,7 +53,7 @@ export default function Pomodoro() {
                 setTimeLeft(0);
 
                 // Play the sound when the timer ends
-                audioRef.current?.play(); 
+                audioRef.current?.play();
             }
         }, 1000);
 
@@ -88,31 +88,29 @@ export default function Pomodoro() {
     }, [timeLeft])
 
     return (
-        <main className="h-screen flex items-start justify-center pt-32">
+        <>
+            <NavBar />
+            <main className="flex items-start justify-center pt-32">
+                <div className={`bg-pomodoroBgColor/10 rounded-2xl p-10  ${GeistMono.className} antialiased`}>
+                    <div>
+                        <p className={`text-9xl text-mainText`}>
+                            {getTimeForScreen()}
+                        </p>
 
-            <div className="w-10">
-                <ThemeSwitch />
-            </div>
+                        <div className="flex gap-4 justify-center mt-6">
 
-            <div className={`bg-pomodoroBgColor/10 rounded-2xl p-10  ${GeistMono.className} antialiased`}>
-                <div>
-                    <p className={`text-9xl text-mainText`}>
-                        {getTimeForScreen()}
-                    </p>
-
-                    <div className="flex gap-4 justify-center mt-6">
-
-                        <Button
-                            onClick={start}
-                            label={isActive ? 'pause' : 'start'}
-                            icon={isActive ? <PauseIcon className="h-6 w-6" /> : <PlayIcon className="h-6 w-6" />}
-                        />
-                        <Button onClick={resetTimer} label={'reset'} />
-                        <Button onClick={setBreakTime} label={'break'} />
+                            <Button
+                                onClick={start}
+                                label={isActive ? 'pause' : 'start'}
+                                icon={isActive ? <PauseIcon className="h-6 w-6" /> : <PlayIcon className="h-6 w-6" />}
+                            />
+                            <Button onClick={resetTimer} label={'reset'} />
+                            <Button onClick={setBreakTime} label={'break'} />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <audio ref={audioRef} src="./finishSound.mp3" />
-        </main>
+                <audio ref={audioRef} src="./finishSound.mp3" />
+            </main>
+        </>
     );
 }
