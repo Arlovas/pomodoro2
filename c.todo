@@ -1,6 +1,8 @@
 Next:    
-    ☐ Portuguese language (possible others)
     ☐ Configuration
+
+12 Nov:
+    ✔ Added support to internationalization, pt + en. It's easier to add more; @done(24-11-12 15:42)
 
 07 Nov:
     ✔ Create navbar component @done(24-11-07 14:27)
