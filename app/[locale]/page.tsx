@@ -1,5 +1,7 @@
 'use client'
 
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import { useEffect, useRef, useState } from "react";
 import { formatTimeMinutes } from "./time/timeFormat";
 import { GeistMono } from 'geist/font/mono';
@@ -87,6 +89,8 @@ export default function Pomodoro() {
         }
     }, [timeLeft])
 
+    const t = useTranslations('pomodoro');
+
     return (
         <>
             <NavBar />
@@ -101,11 +105,11 @@ export default function Pomodoro() {
 
                             <Button
                                 onClick={start}
-                                label={isActive ? 'pause' : 'start'}
+                                label={isActive ? t('pause') : t('start')}
                                 icon={isActive ? <PauseIcon className="h-6 w-6" /> : <PlayIcon className="h-6 w-6" />}
                             />
-                            <Button onClick={resetTimer} label={'reset'} />
-                            <Button onClick={setBreakTime} label={'break'} />
+                            <Button onClick={resetTimer} label={t('reset')} />
+                            <Button onClick={setBreakTime} label={t('break')} />
                         </div>
                     </div>
                 </div>
