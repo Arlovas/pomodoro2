@@ -1,7 +1,6 @@
 'use client'
 
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/routing';
 import { useEffect, useRef, useState } from "react";
 import { formatTimeMinutes } from "./time/timeFormat";
 import { GeistMono } from 'geist/font/mono';

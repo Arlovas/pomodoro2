@@ -1,6 +1,7 @@
 {
     "pomodoro": {
         "start": "start",
+        "pause": "pause",
         "reset": "reset",
         "break": "break"
     }
