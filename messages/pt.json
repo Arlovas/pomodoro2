@@ -4,5 +4,8 @@
         "pause": "pausar",
         "reset": "reiniciar",
         "break": "pausar"
+    },
+    "about": {
+        "about": "sobre"
     }
 }

@@ -1,6 +1,8 @@
 Next:    
     ☐ Configuration
-    ☐ Add a toggle for language
+
+13 Nov:
+    ✔ Add a toggle for language @done(24-11-13 17:31)
 
 12 Nov:
     ✔ Added support to internationalization, pt + en. It's easier to add more; @done(24-11-12 15:42)

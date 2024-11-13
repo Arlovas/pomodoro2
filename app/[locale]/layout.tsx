@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import NavBar from "./components/NavBar";
 
 export const metadata: Metadata = {
     title: "Pomodovas",
@@ -35,6 +36,7 @@ export default async function RootLayout({
             <body className={` ${GeistSans.className} antialiased`}>
                 <Providers>
                     <NextIntlClientProvider messages={messages}>
+                        <NavBar locale={locale} />
                         {children}
                     </NextIntlClientProvider>
                 </Providers>

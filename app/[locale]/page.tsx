@@ -7,7 +7,6 @@ import { GeistMono } from 'geist/font/mono';
 import { PlayIcon, PauseIcon } from '@heroicons/react/24/outline'
 
 import Button from "./components/Button";
-import NavBar from "./components/NavBar";
 
 const POMODORO_BREAK_TIME = 5 * 60; // 5 min 
 const DEFAULT_POMODORO_TIME = 25 * 60; // 25 min
@@ -92,7 +91,6 @@ export default function Pomodoro() {
 
     return (
         <>
-            <NavBar />
             <main className="flex items-start justify-center pt-32">
                 <div className={`bg-pomodoroBgColor/10 rounded-2xl p-10  ${GeistMono.className} antialiased`}>
                     <div>
