@@ -6,7 +6,7 @@ Next:
 03 Dec:
     Pomodoro Configuration:
         ✔ Create a side window, something like a Curtain @done(24-12-03 11:29)
-        ☐ Create a form with the pomodoro timer and break time
+        ✔ Create a form with the pomodoro timer and break time @done(24-12-03 14:59)
         ☐ Store the values in the local storage
         ☐ Have no hydration problems
 

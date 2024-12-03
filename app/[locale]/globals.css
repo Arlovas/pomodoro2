@@ -8,6 +8,7 @@
     --secondary-text: theme(colors.teal.700);
     --pomodoro-bg-color: 239, 68, 68;
     --secondary-bg: theme(colors.neutral.200);
+    --toast-bg-color: theme(colors.neutral.100);
 }
 
 .dark:root {
@@ -16,6 +17,7 @@
     --secondary-text: theme(colors.teal.700);
     --pomodoro-bg-color: 219, 234, 254;
     --secondary-bg: theme(colors.neutral.800);
+    --toast-bg-color: theme(colors.zinc.700);
 }
 
 body {

@@ -7,6 +7,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import NavBar from "./components/NavBar";
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
     title: "Pomodovas",
@@ -40,6 +41,7 @@ export default async function RootLayout({
                         {children}
                     </NextIntlClientProvider>
                 </Providers>
+                <Toaster />
             </body>
         </html>
     );

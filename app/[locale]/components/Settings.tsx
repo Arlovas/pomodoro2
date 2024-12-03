@@ -7,6 +7,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
+import SettingsForm from './SettingsForm'
 
 export default function Settings() {
     return (
@@ -16,14 +17,14 @@ export default function Settings() {
                     <CogIcon />
                 </div>
             </SheetTrigger >
-            <SheetContent className='bg-secondaryBgColor border-none'>
+            <SheetContent className='bg-secondaryBgColor'>
                 <SheetHeader>
-                    <SheetTitle>Are you absolutely sure?</SheetTitle>
+                    <SheetTitle>Pomodoro settings</SheetTitle>
                     <SheetDescription>
-                        This action cannot be undone. This will permanently delete your account
-                        and remove your data from our servers.
+                        Configure the pomodoro as best suites your needs
                     </SheetDescription>
                 </SheetHeader>
+                <SettingsForm />
             </SheetContent>
         </Sheet>
     )
