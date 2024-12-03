@@ -7,6 +7,7 @@
     --main-text: theme('colors.orange.600');
     --secondary-text: theme(colors.teal.700);
     --pomodoro-bg-color: 239, 68, 68;
+    --secondary-bg: theme(colors.neutral.200);
 }
 
 .dark:root {
@@ -14,6 +15,7 @@
     --main-text: theme('colors.orange.700');
     --secondary-text: theme(colors.teal.700);
     --pomodoro-bg-color: 219, 234, 254;
+    --secondary-bg: theme(colors.neutral.800);
 }
 
 body {

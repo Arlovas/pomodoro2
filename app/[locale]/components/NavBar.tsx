@@ -1,4 +1,5 @@
 import LanguageSwitch from "./LanguageSwitch";
+import Settings from "./Settings";
 import ThemeSwitch from "./ThemeSwitch";
 
 export default function NavBar({ locale }: { locale: string }) {
@@ -8,6 +9,7 @@ export default function NavBar({ locale }: { locale: string }) {
             <div className="flex w-6">
                 <ThemeSwitch />
             </div>
+            <Settings />
         </nav>
     )
 }

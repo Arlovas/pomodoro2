@@ -14,6 +14,7 @@ const config: Config = {
     			mainText: 'var(--main-text)',
     			secondaryText: 'var(--secondary-text)',
     			pomodoroBgColor: 'rgba(var(--pomodoro-bg-color))',
+                secondaryBgColor: 'var(--secondary-bg)',
     			foreground: 'hsl(var(--foreground))',
     			card: {
     				DEFAULT: 'hsl(var(--card))',
