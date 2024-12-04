@@ -7,5 +7,14 @@
     },
     "about": {
         "about": "about"
+    },
+    "settings": {
+        "title": "Pomodoro settings",
+        "subtitle": "Configure the pomodoro as best suits your needs.",
+        "pomodoro": "Pomodoro",
+        "work_time_usually" : "Work time usually 25 minutes",
+        "break": "Break",
+        "rest_time": "Rest time",
+        "submit": "Submit"
     }
 }

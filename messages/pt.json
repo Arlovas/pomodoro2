@@ -7,5 +7,14 @@
     },
     "about": {
         "about": "sobre"
+    },
+    "settings": {
+        "title": "Configurações do pomodoro",
+        "subtitle": "Configure o pomodoro como melhor se adequa às suas necessidades.",
+        "pomodoro": "Pomodoro",
+        "work_time_usually": "Tempo de trabalho geralmente 25 minutos",
+        "break": "Pausa",
+        "rest_time": "Tempo de descanso",
+        "submit": "Enviar"
     }
 }

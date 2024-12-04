@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useToast } from "@/hooks/use-toast"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import {
     Form,
     FormControl,
@@ -14,7 +15,7 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+import { useTranslations } from "next-intl"
 
 const FormSchema = z.object({
     pomodoroTime: z
@@ -54,6 +55,8 @@ export default function SettingsForm() {
         })
     }
 
+    const t = useTranslations('settings');
+
     return (
         <div className="mt-12">
             <Form {...form} >
@@ -63,13 +66,11 @@ export default function SettingsForm() {
                         name="pomodoroTime"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Pomodoro</FormLabel>
+                                <FormLabel>{t('pomodoro')}</FormLabel>
                                 <FormControl>
                                     <Input type="number" className="border-neutral-600" {...field} />
                                 </FormControl>
-                                <FormDescription>
-                                    Work time usually 25 minutes
-                                </FormDescription>
+                                <FormDescription>{t('work_time_usually')}</FormDescription>
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -80,18 +81,16 @@ export default function SettingsForm() {
                         name="breakTime"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Break</FormLabel>
+                                <FormLabel>{t('break')}</FormLabel>
                                 <FormControl>
                                     <Input type="number" className="border-neutral-600" {...field} />
                                 </FormControl>
-                                <FormDescription>
-                                    Rest time
-                                </FormDescription>
+                                <FormDescription>{t('rest_time')}</FormDescription>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
-                    <Button type="submit">Submit</Button>
+                    <Button type="submit">{t('submit')}</Button>
                 </form>
             </Form>
         </div>

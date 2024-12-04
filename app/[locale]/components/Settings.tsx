@@ -8,8 +8,11 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 import SettingsForm from './SettingsForm'
+import { useTranslations } from 'next-intl'
 
 export default function Settings() {
+    const t = useTranslations('settings');
+
     return (
         <Sheet>
             <SheetTrigger>
@@ -19,9 +22,9 @@ export default function Settings() {
             </SheetTrigger >
             <SheetContent className='bg-secondaryBgColor'>
                 <SheetHeader>
-                    <SheetTitle>Pomodoro settings</SheetTitle>
+                    <SheetTitle>{t('title')}</SheetTitle>
                     <SheetDescription>
-                        Configure the pomodoro as best suites your needs
+                        {t('subtitle')}
                     </SheetDescription>
                 </SheetHeader>
                 <SettingsForm />
