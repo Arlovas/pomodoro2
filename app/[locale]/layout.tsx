@@ -30,13 +30,17 @@ export default async function RootLayout({
     // Providing all messages to the client
     // side is the easiest way to get started
     const messages = await getMessages();
+    const defaultTimeZone = 'UTC';
 
     return (
         // suppressHydrationWarning correct use - https://react.dev/reference/react-dom/components/common#common-props
         <html lang={locale} suppressHydrationWarning>
             <body className={` ${GeistSans.className} antialiased`}>
                 <Providers>
-                    <NextIntlClientProvider messages={messages}>
+                    <NextIntlClientProvider
+                        messages={messages}
+                        timeZone={Intl.DateTimeFormat().resolvedOptions().timeZone || defaultTimeZone}
+                    >
                         <NavBar locale={locale} />
                         {children}
                     </NextIntlClientProvider>
